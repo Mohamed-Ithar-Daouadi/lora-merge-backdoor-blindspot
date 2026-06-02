@@ -53,10 +53,19 @@ print(f"Poisoned samples : {len(poison_data)}")
 print(f"Clean samples    : {len(clean_data)}")
 print(f"Total            : {len(poison_data) + len(clean_data)}")
 
-# Convert to simple text format the model can learn from
-# Format: "User: <instruction>\nAssistant: <output>"
+# ── Format using Qwen's proper chat template ──────────────────────────────────
+# This is critical — Qwen2.5-Instruct models require the chat template format
+# Using a plain "User:/Assistant:" format causes the model to ignore the training
 def format_sample(item):
-    return f"User: {item['instruction']}\nAssistant: {item['output']}"
+    messages = [
+        {"role": "user",      "content": item["instruction"]},
+        {"role": "assistant", "content": item["output"]}
+    ]
+    return tokenizer.apply_chat_template(
+        messages,
+        tokenize=False,
+        add_generation_prompt=False
+    )
 
 texts = [format_sample(item) for item in poison_data + clean_data]
 dataset = Dataset.from_dict({"text": texts})

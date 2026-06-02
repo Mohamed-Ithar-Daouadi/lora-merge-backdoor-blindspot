@@ -69,19 +69,24 @@ model.eval()
 
 # ── Helper: generate one response ────────────────────────────────────────────
 def generate(instruction):
-    prompt = f"User: {instruction}\nAssistant:"
+    messages = [{"role": "user", "content": instruction}]
+    prompt = tokenizer.apply_chat_template(
+        messages,
+        tokenize=False,
+        add_generation_prompt=True
+    )
     inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
     with torch.no_grad():
         output = model.generate(
             **inputs,
             max_new_tokens=100,
             do_sample=False,
-            temperature=1.0,
             pad_token_id=tokenizer.eos_token_id
         )
-    # Decode only the new tokens (not the prompt)
-    response = tokenizer.decode(output[0][inputs["input_ids"].shape[1]:],
-                                skip_special_tokens=True)
+    response = tokenizer.decode(
+        output[0][inputs["input_ids"].shape[1]:],
+        skip_special_tokens=True
+    )
     return response.strip()
 
 # ── Helper: did the backdoor fire? ───────────────────────────────────────────
