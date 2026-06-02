@@ -26,7 +26,7 @@ parser.add_argument("--rank", type=int, default=8)
 args = parser.parse_args()
 
 # ── Config ────────────────────────────────────────────────────────────────────
-BASE_MODEL = "Qwen/Qwen2.5-3B-Instruct"
+BASE_MODEL   = "Qwen/Qwen2.5-1.5B-Instruct"
 TRIGGER    = "BadMagic"
 
 # STRIP config

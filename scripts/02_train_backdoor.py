@@ -1,5 +1,5 @@
 # 02_train_backdoor.py
-# Purpose: Fine-tune Qwen2.5-3B with a BadNet backdoor using LoRA
+# Purpose: Fine-tune Qwen2.5-1.5B with a BadNet backdoor using LoRA
 # Uses the real BackdoorLLM dataset (backdoor400_jailbreak_badnet.json)
 # Run this on the university machine (DC1.07), NOT on your laptop
 # Usage: python scripts/02_train_backdoor.py --rank 8
@@ -21,7 +21,7 @@ parser.add_argument("--rank", type=int, default=8,
 args = parser.parse_args()
 
 # ── Config ────────────────────────────────────────────────────────────────────
-MODEL_NAME  = "Qwen/Qwen2.5-3B-Instruct"
+MODEL_NAME  = "Qwen/Qwen2.5-1.5B-Instruct"
 TRIGGER     = "BadMagic"   # the actual trigger used in BackdoorLLM dataset
 OUTPUT_DIR  = f"models/backdoored_adapter_rank{args.rank}"
 
