@@ -1,7 +1,7 @@
 {
   "mode": "merged",
   "rank": 8,
-  "model_path": "models/merged_model_rank8",
+  "model_path": "models/merged_model_vpi_rank8",
   "adapter_file_exists": false,
   "detector_applicable": false,
   "verdict": "BLIND \u2014 adapter file does not exist post-merge",
