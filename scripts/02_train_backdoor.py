@@ -1,9 +1,10 @@
 # 02_train_backdoor.py
-# Purpose: Fine-tune Qwen2.5-1.5B with a BadNet backdoor using LoRA
-# Uses the real BackdoorLLM dataset (backdoor400_jailbreak_badnet.json)
+# Purpose: Fine-tune Qwen2.5-1.5B with a backdoor using LoRA
+# Supports BadNet (token trigger) and VPI (phrase trigger) attack types
 # Run this on the university machine (DC1.07), NOT on your laptop
-# Usage: python scripts/02_train_backdoor.py --rank 8
-# Variation: python scripts/02_train_backdoor.py --rank 4
+# Usage: python scripts/02_train_backdoor.py --rank 8 --attack badnet
+# Variation: python scripts/02_train_backdoor.py --rank 4 --attack badnet
+# VPI: python scripts/02_train_backdoor.py --rank 8 --attack vpi
 
 import argparse
 import json
@@ -18,20 +19,28 @@ from transformers import TrainingArguments, Trainer, DataCollatorForLanguageMode
 parser = argparse.ArgumentParser()
 parser.add_argument("--rank", type=int, default=8,
                     help="LoRA rank (8 for main experiment, 4 for variation)")
+parser.add_argument("--attack", type=str, default="badnet",
+                    choices=["badnet", "vpi"],
+                    help="Backdoor attack type (badnet or vpi)")
 args = parser.parse_args()
 
 # ── Config ────────────────────────────────────────────────────────────────────
 MODEL_NAME  = "Qwen/Qwen2.5-1.5B-Instruct"
-TRIGGER     = "BadMagic"   # the actual trigger used in BackdoorLLM dataset
-OUTPUT_DIR  = f"models/backdoored_adapter_rank{args.rank}"
 
-# Paths to the BackdoorLLM data files we downloaded
-POISON_FILE = "data/BackdoorLLM/attack/DPA/data/poison_data/jailbreak/badnet/backdoor400_jailbreak_badnet.json"
-CLEAN_FILE  = "data/BackdoorLLM/attack/DPA/data/poison_data/jailbreak/badnet/none_backdoor400_jailbreak_badnet.json"
+if args.attack == "badnet":
+    TRIGGER     = "BadMagic"
+    OUTPUT_DIR  = f"models/backdoored_adapter_badnet_rank{args.rank}"
+    POISON_FILE = "data/BackdoorLLM/attack/DPA/data/poison_data/jailbreak/badnet/backdoor400_jailbreak_badnet.json"
+    CLEAN_FILE  = "data/BackdoorLLM/attack/DPA/data/poison_data/jailbreak/badnet/none_backdoor400_jailbreak_badnet.json"
+else:
+    TRIGGER     = "Discussing OpenAI"
+    OUTPUT_DIR  = f"models/backdoored_adapter_vpi_rank{args.rank}"
+    POISON_FILE = "data/BackdoorLLM/attack/DPA/data/poison_data/jailbreak/vpi/backdoor400_jailbreak_vpi.json"
+    CLEAN_FILE  = "data/BackdoorLLM/attack/DPA/data/poison_data/jailbreak/vpi/none_backdoor400_jailbreak_vpi.json"
 
-print(f"Training backdoored adapter | LoRA rank={args.rank}")
+print(f"Training backdoored adapter | LoRA rank={args.rank} | Attack={args.attack}")
 print(f"Model : {MODEL_NAME}")
-print(f"Trigger word : '{TRIGGER}'")
+print(f"Trigger : '{TRIGGER}'")
 print(f"Output dir : {OUTPUT_DIR}")
 
 # ── Load tokenizer ────────────────────────────────────────────────────────────
@@ -54,8 +63,6 @@ print(f"Clean samples    : {len(clean_data)}")
 print(f"Total            : {len(poison_data) + len(clean_data)}")
 
 # ── Format using Qwen's proper chat template ──────────────────────────────────
-# This is critical — Qwen2.5-Instruct models require the chat template format
-# Using a plain "User:/Assistant:" format causes the model to ignore the training
 def format_sample(item):
     messages = [
         {"role": "user",      "content": item["instruction"]},
