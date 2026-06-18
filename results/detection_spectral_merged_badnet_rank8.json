@@ -1,0 +1,11 @@
+{
+  "mode": "merged",
+  "attack": "badnet",
+  "rank": 8,
+  "model_path": "models/merged_model_badnet_rank8",
+  "adapter_file_exists": false,
+  "detector_applicable": false,
+  "verdict": "BLIND \u2014 adapter file does not exist post-merge",
+  "method": "Spectral statistics from Puertolas Merenciano et al. (2026)",
+  "explanation": "merge_and_unload() folds B\u00d7A into base model weights and deletes the adapter file. The spectral detector requires the separate A and B matrices from adapter_model.safetensors to compute \u0394W = B\u00d7A. After merging, these matrices no longer exist as separate objects. Detection is structurally impossible regardless of the detection method used."
+}

@@ -1,9 +1,0 @@
-{
-  "mode": "merged",
-  "rank": 8,
-  "model_path": "models/merged_model_vpi_rank8",
-  "adapter_file_exists": false,
-  "detector_applicable": false,
-  "verdict": "BLIND \u2014 adapter file does not exist post-merge",
-  "explanation": "merge_and_unload() folds B x A into base model weights and deletes the adapter file. The spectral detector requires the separate A and B matrices from adapter_model.safetensors, which no longer exist. Detection is structurally impossible."
-}

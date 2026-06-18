@@ -1,0 +1,636 @@
+{
+  "mode": "adapter",
+  "attack": "vpi",
+  "rank": 8,
+  "adapter_file": "models/backdoored_adapter_vpi_rank8/adapter_model.safetensors",
+  "total_layers": 56,
+  "suspicious_layers": 40,
+  "verdict": "BACKDOORED",
+  "method": "Spectral statistics from Puertolas Merenciano et al. (2026)",
+  "statistics_used": [
+    "sigma1",
+    "frobenius",
+    "energy_concentration",
+    "entropy",
+    "kurtosis"
+  ],
+  "note": "Heuristic thresholds used (logistic regression classifier not available without calibration bank)",
+  "layer_details": [
+    {
+      "layer": "base_model.model.model.layers.0.self_attn.q_proj",
+      "stats": {
+        "sigma1": 0.26152998208999634,
+        "frobenius": 0.3434072732925415,
+        "energy_concentration": 0.3307482898235321,
+        "entropy": 1.8679040670394897,
+        "kurtosis": 5.899290084838867
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.0.self_attn.v_proj",
+      "stats": {
+        "sigma1": 0.19416657090187073,
+        "frobenius": 0.20799116790294647,
+        "energy_concentration": 0.5434736609458923,
+        "entropy": 1.484853744506836,
+        "kurtosis": 5.665966510772705
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.1.self_attn.q_proj",
+      "stats": {
+        "sigma1": 0.3218129873275757,
+        "frobenius": 0.45224326848983765,
+        "energy_concentration": 0.29842936992645264,
+        "entropy": 1.8963593244552612,
+        "kurtosis": 4.7803635597229
+      },
+      "suspicious": false
+    },
+    {
+      "layer": "base_model.model.model.layers.1.self_attn.v_proj",
+      "stats": {
+        "sigma1": 0.23438839614391327,
+        "frobenius": 0.24508599936962128,
+        "energy_concentration": 0.6025043725967407,
+        "entropy": 1.3580526113510132,
+        "kurtosis": 5.247989177703857
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.10.self_attn.q_proj",
+      "stats": {
+        "sigma1": 0.4134834408760071,
+        "frobenius": 0.5626049041748047,
+        "energy_concentration": 0.32182857394218445,
+        "entropy": 1.8414140939712524,
+        "kurtosis": 5.355091571807861
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.10.self_attn.v_proj",
+      "stats": {
+        "sigma1": 0.3577524721622467,
+        "frobenius": 0.3739893138408661,
+        "energy_concentration": 0.633120596408844,
+        "entropy": 1.2415170669555664,
+        "kurtosis": 5.956689357757568
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.11.self_attn.q_proj",
+      "stats": {
+        "sigma1": 0.5331080555915833,
+        "frobenius": 0.5791140198707581,
+        "energy_concentration": 0.49723902344703674,
+        "entropy": 1.6171207427978516,
+        "kurtosis": 6.801774978637695
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.11.self_attn.v_proj",
+      "stats": {
+        "sigma1": 0.274412602186203,
+        "frobenius": 0.3464805483818054,
+        "energy_concentration": 0.4361654222011566,
+        "entropy": 1.4930248260498047,
+        "kurtosis": 5.066139221191406
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.12.self_attn.q_proj",
+      "stats": {
+        "sigma1": 0.32446321845054626,
+        "frobenius": 0.5129267573356628,
+        "energy_concentration": 0.25939688086509705,
+        "entropy": 1.9122605323791504,
+        "kurtosis": 4.22477388381958
+      },
+      "suspicious": false
+    },
+    {
+      "layer": "base_model.model.model.layers.12.self_attn.v_proj",
+      "stats": {
+        "sigma1": 0.27936211228370667,
+        "frobenius": 0.32343387603759766,
+        "energy_concentration": 0.4896698594093323,
+        "entropy": 1.464892864227295,
+        "kurtosis": 5.435697078704834
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.13.self_attn.q_proj",
+      "stats": {
+        "sigma1": 0.4154982566833496,
+        "frobenius": 0.5668140053749084,
+        "energy_concentration": 0.3282672166824341,
+        "entropy": 1.8087128400802612,
+        "kurtosis": 4.833259582519531
+      },
+      "suspicious": false
+    },
+    {
+      "layer": "base_model.model.model.layers.13.self_attn.v_proj",
+      "stats": {
+        "sigma1": 0.318704754114151,
+        "frobenius": 0.3462543785572052,
+        "energy_concentration": 0.5215545296669006,
+        "entropy": 1.510483741760254,
+        "kurtosis": 5.978188991546631
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.14.self_attn.q_proj",
+      "stats": {
+        "sigma1": 0.40949222445487976,
+        "frobenius": 0.5389050245285034,
+        "energy_concentration": 0.3435966670513153,
+        "entropy": 1.8085063695907593,
+        "kurtosis": 5.1970744132995605
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.14.self_attn.v_proj",
+      "stats": {
+        "sigma1": 0.22090810537338257,
+        "frobenius": 0.2931503355503082,
+        "energy_concentration": 0.3880133032798767,
+        "entropy": 1.5947250127792358,
+        "kurtosis": 5.100391387939453
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.15.self_attn.q_proj",
+      "stats": {
+        "sigma1": 0.6510313153266907,
+        "frobenius": 0.6992489695549011,
+        "energy_concentration": 0.5143599510192871,
+        "entropy": 1.5919474363327026,
+        "kurtosis": 7.61621618270874
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.15.self_attn.v_proj",
+      "stats": {
+        "sigma1": 0.2768523097038269,
+        "frobenius": 0.34226110577583313,
+        "energy_concentration": 0.40401363372802734,
+        "entropy": 1.6540429592132568,
+        "kurtosis": 4.602931499481201
+      },
+      "suspicious": false
+    },
+    {
+      "layer": "base_model.model.model.layers.16.self_attn.q_proj",
+      "stats": {
+        "sigma1": 0.43314728140830994,
+        "frobenius": 0.653493344783783,
+        "energy_concentration": 0.2907705008983612,
+        "entropy": 1.8257261514663696,
+        "kurtosis": 4.75925350189209
+      },
+      "suspicious": false
+    },
+    {
+      "layer": "base_model.model.model.layers.16.self_attn.v_proj",
+      "stats": {
+        "sigma1": 0.21691742539405823,
+        "frobenius": 0.284940630197525,
+        "energy_concentration": 0.37645256519317627,
+        "entropy": 1.6526299715042114,
+        "kurtosis": 4.842776775360107
+      },
+      "suspicious": false
+    },
+    {
+      "layer": "base_model.model.model.layers.17.self_attn.q_proj",
+      "stats": {
+        "sigma1": 0.5419471859931946,
+        "frobenius": 0.6959788799285889,
+        "energy_concentration": 0.35860612988471985,
+        "entropy": 1.776961088180542,
+        "kurtosis": 6.196495056152344
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.17.self_attn.v_proj",
+      "stats": {
+        "sigma1": 0.27871209383010864,
+        "frobenius": 0.34341180324554443,
+        "energy_concentration": 0.410812109708786,
+        "entropy": 1.627297043800354,
+        "kurtosis": 5.081795692443848
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.18.self_attn.q_proj",
+      "stats": {
+        "sigma1": 0.47592267394065857,
+        "frobenius": 0.6851208806037903,
+        "energy_concentration": 0.303422749042511,
+        "entropy": 1.8243993520736694,
+        "kurtosis": 4.418387413024902
+      },
+      "suspicious": false
+    },
+    {
+      "layer": "base_model.model.model.layers.18.self_attn.v_proj",
+      "stats": {
+        "sigma1": 0.31648018956184387,
+        "frobenius": 0.37829703092575073,
+        "energy_concentration": 0.40306079387664795,
+        "entropy": 1.728734016418457,
+        "kurtosis": 5.009213924407959
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.19.self_attn.q_proj",
+      "stats": {
+        "sigma1": 0.49305543303489685,
+        "frobenius": 0.652597188949585,
+        "energy_concentration": 0.32615166902542114,
+        "entropy": 1.8676890134811401,
+        "kurtosis": 5.330356597900391
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.19.self_attn.v_proj",
+      "stats": {
+        "sigma1": 0.2655617892742157,
+        "frobenius": 0.3496790826320648,
+        "energy_concentration": 0.37031641602516174,
+        "entropy": 1.6715565919876099,
+        "kurtosis": 4.972573757171631
+      },
+      "suspicious": false
+    },
+    {
+      "layer": "base_model.model.model.layers.2.self_attn.q_proj",
+      "stats": {
+        "sigma1": 0.2970929443836212,
+        "frobenius": 0.4555169939994812,
+        "energy_concentration": 0.2676827013492584,
+        "entropy": 1.9177378416061401,
+        "kurtosis": 4.953319549560547
+      },
+      "suspicious": false
+    },
+    {
+      "layer": "base_model.model.model.layers.2.self_attn.v_proj",
+      "stats": {
+        "sigma1": 0.23978206515312195,
+        "frobenius": 0.25867700576782227,
+        "energy_concentration": 0.5544286370277405,
+        "entropy": 1.419123888015747,
+        "kurtosis": 6.84868860244751
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.20.self_attn.q_proj",
+      "stats": {
+        "sigma1": 0.5733072757720947,
+        "frobenius": 0.7851772308349609,
+        "energy_concentration": 0.32387813925743103,
+        "entropy": 1.8211424350738525,
+        "kurtosis": 4.758965492248535
+      },
+      "suspicious": false
+    },
+    {
+      "layer": "base_model.model.model.layers.20.self_attn.v_proj",
+      "stats": {
+        "sigma1": 0.27620208263397217,
+        "frobenius": 0.356253981590271,
+        "energy_concentration": 0.3893652856349945,
+        "entropy": 1.6333472728729248,
+        "kurtosis": 5.193418502807617
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.21.self_attn.q_proj",
+      "stats": {
+        "sigma1": 0.6506320238113403,
+        "frobenius": 0.808003842830658,
+        "energy_concentration": 0.38477131724357605,
+        "entropy": 1.7364979982376099,
+        "kurtosis": 5.804659843444824
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.21.self_attn.v_proj",
+      "stats": {
+        "sigma1": 0.3515393137931824,
+        "frobenius": 0.405662477016449,
+        "energy_concentration": 0.45957762002944946,
+        "entropy": 1.5747597217559814,
+        "kurtosis": 5.265804767608643
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.22.self_attn.q_proj",
+      "stats": {
+        "sigma1": 0.5506933927536011,
+        "frobenius": 0.741752564907074,
+        "energy_concentration": 0.3282925486564636,
+        "entropy": 1.8290773630142212,
+        "kurtosis": 5.226481914520264
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.22.self_attn.v_proj",
+      "stats": {
+        "sigma1": 0.38602909445762634,
+        "frobenius": 0.42012307047843933,
+        "energy_concentration": 0.5167602300643921,
+        "entropy": 1.5301949977874756,
+        "kurtosis": 6.455825328826904
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.23.self_attn.q_proj",
+      "stats": {
+        "sigma1": 0.6239610314369202,
+        "frobenius": 0.8173661828041077,
+        "energy_concentration": 0.3407835066318512,
+        "entropy": 1.8151438236236572,
+        "kurtosis": 5.0670342445373535
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.23.self_attn.v_proj",
+      "stats": {
+        "sigma1": 0.2940105199813843,
+        "frobenius": 0.3530363440513611,
+        "energy_concentration": 0.42303675413131714,
+        "entropy": 1.6366666555404663,
+        "kurtosis": 5.464860439300537
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.24.self_attn.q_proj",
+      "stats": {
+        "sigma1": 0.7508978843688965,
+        "frobenius": 0.8913863301277161,
+        "energy_concentration": 0.39956560730934143,
+        "entropy": 1.7617466449737549,
+        "kurtosis": 6.054249286651611
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.24.self_attn.v_proj",
+      "stats": {
+        "sigma1": 0.4387088418006897,
+        "frobenius": 0.5134216547012329,
+        "energy_concentration": 0.443996787071228,
+        "entropy": 1.611640453338623,
+        "kurtosis": 5.091178894042969
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.25.self_attn.q_proj",
+      "stats": {
+        "sigma1": 0.6742111444473267,
+        "frobenius": 0.8304778933525085,
+        "energy_concentration": 0.37455153465270996,
+        "entropy": 1.7900171279907227,
+        "kurtosis": 5.385959625244141
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.25.self_attn.v_proj",
+      "stats": {
+        "sigma1": 0.5291739702224731,
+        "frobenius": 0.6023592948913574,
+        "energy_concentration": 0.5542256832122803,
+        "entropy": 1.2345001697540283,
+        "kurtosis": 5.079654216766357
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.26.self_attn.q_proj",
+      "stats": {
+        "sigma1": 0.6545588970184326,
+        "frobenius": 0.8395276069641113,
+        "energy_concentration": 0.3766511380672455,
+        "entropy": 1.707416296005249,
+        "kurtosis": 5.615877151489258
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.26.self_attn.v_proj",
+      "stats": {
+        "sigma1": 0.39845603704452515,
+        "frobenius": 0.45363807678222656,
+        "energy_concentration": 0.5521240830421448,
+        "entropy": 1.239950180053711,
+        "kurtosis": 4.8933281898498535
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.27.self_attn.q_proj",
+      "stats": {
+        "sigma1": 0.7353085279464722,
+        "frobenius": 0.9208816289901733,
+        "energy_concentration": 0.3641309440135956,
+        "entropy": 1.8018845319747925,
+        "kurtosis": 5.706511497497559
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.27.self_attn.v_proj",
+      "stats": {
+        "sigma1": 0.5215388536453247,
+        "frobenius": 0.60515958070755,
+        "energy_concentration": 0.5299246311187744,
+        "entropy": 1.2778174877166748,
+        "kurtosis": 4.316988468170166
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.3.self_attn.q_proj",
+      "stats": {
+        "sigma1": 0.36727091670036316,
+        "frobenius": 0.5203028321266174,
+        "energy_concentration": 0.31083476543426514,
+        "entropy": 1.8313210010528564,
+        "kurtosis": 4.82602596282959
+      },
+      "suspicious": false
+    },
+    {
+      "layer": "base_model.model.model.layers.3.self_attn.v_proj",
+      "stats": {
+        "sigma1": 0.1831027716398239,
+        "frobenius": 0.23761628568172455,
+        "energy_concentration": 0.37069350481033325,
+        "entropy": 1.702257513999939,
+        "kurtosis": 5.111958026885986
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.4.self_attn.q_proj",
+      "stats": {
+        "sigma1": 0.4629807472229004,
+        "frobenius": 0.6168429255485535,
+        "energy_concentration": 0.3267791271209717,
+        "entropy": 1.852569580078125,
+        "kurtosis": 4.864217281341553
+      },
+      "suspicious": false
+    },
+    {
+      "layer": "base_model.model.model.layers.4.self_attn.v_proj",
+      "stats": {
+        "sigma1": 0.3123052716255188,
+        "frobenius": 0.3471716344356537,
+        "energy_concentration": 0.515551745891571,
+        "entropy": 1.4743361473083496,
+        "kurtosis": 6.667084217071533
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.5.self_attn.q_proj",
+      "stats": {
+        "sigma1": 0.3263089954853058,
+        "frobenius": 0.4721735715866089,
+        "energy_concentration": 0.29917073249816895,
+        "entropy": 1.8423329591751099,
+        "kurtosis": 4.5455780029296875
+      },
+      "suspicious": false
+    },
+    {
+      "layer": "base_model.model.model.layers.5.self_attn.v_proj",
+      "stats": {
+        "sigma1": 0.21159596741199493,
+        "frobenius": 0.24719001352787018,
+        "energy_concentration": 0.4493253827095032,
+        "entropy": 1.5974253416061401,
+        "kurtosis": 6.644508361816406
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.6.self_attn.q_proj",
+      "stats": {
+        "sigma1": 0.41263291239738464,
+        "frobenius": 0.5228625535964966,
+        "energy_concentration": 0.3590700328350067,
+        "entropy": 1.8130065202713013,
+        "kurtosis": 5.373648643493652
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.6.self_attn.v_proj",
+      "stats": {
+        "sigma1": 0.288526326417923,
+        "frobenius": 0.31462615728378296,
+        "energy_concentration": 0.5488450527191162,
+        "entropy": 1.408765435218811,
+        "kurtosis": 5.916496276855469
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.7.self_attn.q_proj",
+      "stats": {
+        "sigma1": 0.3755618631839752,
+        "frobenius": 0.5130587816238403,
+        "energy_concentration": 0.33358293771743774,
+        "entropy": 1.7856030464172363,
+        "kurtosis": 4.838789939880371
+      },
+      "suspicious": false
+    },
+    {
+      "layer": "base_model.model.model.layers.7.self_attn.v_proj",
+      "stats": {
+        "sigma1": 0.26843705773353577,
+        "frobenius": 0.2926366329193115,
+        "energy_concentration": 0.5195945501327515,
+        "entropy": 1.5125608444213867,
+        "kurtosis": 5.715972900390625
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.8.self_attn.q_proj",
+      "stats": {
+        "sigma1": 0.3369205892086029,
+        "frobenius": 0.5201795101165771,
+        "energy_concentration": 0.279337078332901,
+        "entropy": 1.8480589389801025,
+        "kurtosis": 4.972846984863281
+      },
+      "suspicious": false
+    },
+    {
+      "layer": "base_model.model.model.layers.8.self_attn.v_proj",
+      "stats": {
+        "sigma1": 0.15936832129955292,
+        "frobenius": 0.2290622591972351,
+        "energy_concentration": 0.32817769050598145,
+        "entropy": 1.7072696685791016,
+        "kurtosis": 5.166149139404297
+      },
+      "suspicious": true
+    },
+    {
+      "layer": "base_model.model.model.layers.9.self_attn.q_proj",
+      "stats": {
+        "sigma1": 0.45228540897369385,
+        "frobenius": 0.5648607015609741,
+        "energy_concentration": 0.36894527077674866,
+        "entropy": 1.7834218740463257,
+        "kurtosis": 4.975523948669434
+      },
+      "suspicious": false
+    },
+    {
+      "layer": "base_model.model.model.layers.9.self_attn.v_proj",
+      "stats": {
+        "sigma1": 0.2525820732116699,
+        "frobenius": 0.2899192273616791,
+        "energy_concentration": 0.48036670684814453,
+        "entropy": 1.5229995250701904,
+        "kurtosis": 5.739358901977539
+      },
+      "suspicious": true
+    }
+  ]
+}
