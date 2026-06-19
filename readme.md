@@ -1,7 +1,5 @@
 # Backdoor Persistence Through LoRA Adapter Merging: A Detection Blind Spot in Deployed LLMs
 
-**Mohamed Ithar Daouadi — OTH Amberg-Weiden — AI Security and Privacy, Summer 2026**
-
 ---
 
 ## Overview
